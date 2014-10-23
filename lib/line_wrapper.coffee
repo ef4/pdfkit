@@ -81,7 +81,7 @@ class LineWrapper extends EventEmitter
         while word.length
           # fit as much of the word as possible into the space we have
           l = word.length
-          while w > @spaceLeft
+          while w > @spaceLeft and w > 0
             w = @wordWidth word.slice(0, --l)
             
           trailing = @trailingSpaceWidth word.slice(0, l)
@@ -199,7 +199,6 @@ class LineWrapper extends EventEmitter
           wc = 1
       else
         @spaceLeft -= w
-        @spaceLeft = 0 if @spaceLeft < 0
       
     if wc > 0
       @emit 'lastLine', options, this
