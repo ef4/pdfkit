@@ -95,7 +95,7 @@
           fbk = {};
           while (word.length) {
             l = word.length;
-            while (w > this.spaceLeft) {
+            while (w > this.spaceLeft && w > 0) {
               w = this.wordWidth(word.slice(0, --l));
             }
             trailing = this.trailingSpaceWidth(word.slice(0, l));
@@ -211,10 +211,7 @@
               return wc = 1;
             }
           } else {
-            _this.spaceLeft -= w;
-            if (_this.spaceLeft < 0) {
-              return _this.spaceLeft = 0;
-            }
+            return _this.spaceLeft -= w;
           }
         };
       })(this));
