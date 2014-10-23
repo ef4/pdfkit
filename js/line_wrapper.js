@@ -211,7 +211,10 @@
               return wc = 1;
             }
           } else {
-            return _this.spaceLeft -= w;
+            _this.spaceLeft -= w;
+            if (_this.spaceLeft < 0) {
+              return _this.spaceLeft = 0;
+            }
           }
         };
       })(this));
