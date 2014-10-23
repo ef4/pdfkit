@@ -199,6 +199,7 @@ class LineWrapper extends EventEmitter
           wc = 1
       else
         @spaceLeft -= w
+        @spaceLeft = 0 if @spaceLeft < 0
       
     if wc > 0
       @emit 'lastLine', options, this
